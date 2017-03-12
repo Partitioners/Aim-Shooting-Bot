@@ -5,8 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import pl.hypeapp.endoscope.ui.fragment.IpAddressFragment;
-import pl.hypeapp.endoscope.ui.fragment.NfcFragment;
-import pl.hypeapp.endoscope.ui.fragment.QrCodeFragment;
 
 
 public class StartStreamPagerAdapter extends FragmentPagerAdapter {
@@ -20,10 +18,8 @@ public class StartStreamPagerAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0:
                 return new IpAddressFragment();
-            case 1:
-                return new QrCodeFragment();
-            case 2:
-                return new NfcFragment();
+
+
             default:
                 break;
         }
@@ -32,6 +28,6 @@ public class StartStreamPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 1;
     }
 }

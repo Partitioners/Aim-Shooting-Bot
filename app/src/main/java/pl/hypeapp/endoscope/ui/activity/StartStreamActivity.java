@@ -38,15 +38,12 @@ import pl.hypeapp.endoscope.R;
 import pl.hypeapp.endoscope.adapter.StartStreamPagerAdapter;
 import pl.hypeapp.endoscope.presenter.StartStreamPresenter;
 import pl.hypeapp.endoscope.receiver.WiFiStateChangeReceiver;
-import pl.hypeapp.endoscope.ui.listener.OnDotPageChangeListener;
 import pl.hypeapp.endoscope.util.SettingsPreferencesUtil;
 import pl.hypeapp.endoscope.view.StartStreamView;
 
 public class StartStreamActivity extends TiActivity<StartStreamPresenter, StartStreamView> implements StartStreamView,
         SurfaceHolder.Callback, Session.Callback {
     public static final int IP_PAGE = 0;
-    public static final int QR_CODE_PAGE = 1;
-    public static final int NFC_PAGE = 2;
     public static final String IP_LOCAL = "ip_local";
     private Session session;
     private WiFiStateChangeReceiver wiFiStateChangeReceiver;
@@ -54,7 +51,7 @@ public class StartStreamActivity extends TiActivity<StartStreamPresenter, StartS
     private ViewPager viewPager;
     @BindView(R.id.surface) SurfaceView surfaceView;
     @BindView(R.id.about_connection) View aboutConnectionView;
-    @BindViews({R.id.circle_page1, R.id.circle_page2, R.id.circle_page3}) List<ImageView> dots;
+
 
     @NonNull
     @Override
@@ -81,7 +78,6 @@ public class StartStreamActivity extends TiActivity<StartStreamPresenter, StartS
     public void initViewPager() {
         viewPager = (ViewPager) findViewById(R.id.about_connect_pager);
         StartStreamPagerAdapter startStreamPagerAdapter = new StartStreamPagerAdapter(getSupportFragmentManager());
-        viewPager.addOnPageChangeListener(new OnDotPageChangeListener(dots));
         viewPager.setAdapter(startStreamPagerAdapter);
     }
 
@@ -126,15 +122,6 @@ public class StartStreamActivity extends TiActivity<StartStreamPresenter, StartS
         viewPager.setCurrentItem(IP_PAGE);
     }
 
-    @OnClick(R.id.qr_code_layout)
-    public void SlideToQrCodePage() {
-        viewPager.setCurrentItem(QR_CODE_PAGE);
-    }
-
-    @OnClick(R.id.nfc_layout)
-    public void SlideToNfcPage() {
-        viewPager.setCurrentItem(NFC_PAGE);
-    }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {

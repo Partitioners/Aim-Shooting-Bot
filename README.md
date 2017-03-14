@@ -1,1 +1,1 @@
-An android app to control shooting and movement of an aim shooting bot. Live streaming of video from recorder to controller phone takes place through rstp (real time streaming protocol) and then coordinates of touched point are sent back to recorder through WiFi Direct
+An android app to control shooting and movement of an aim shooting bot. Live streaming of video from recorder to controller phone takes place through rtsp (real time streaming protocol) and then coordinates of touched point are sent back to recorder through WiFi Direct

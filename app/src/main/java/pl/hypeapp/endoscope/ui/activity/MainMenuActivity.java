@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import pl.hypeapp.endoscope.R;
+import pl.hypeapp.endoscope.WiFiDirectActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -24,6 +25,12 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent i =  new Intent(MainMenuActivity.this, ConnectToStreamActivity.class);
         startActivity(i);
     }
+
+    public void intentWifiDirect(View view) {
+        Intent i =  new Intent(MainMenuActivity.this, WiFiDirectActivity.class);
+        startActivity(i);
+    }
+
 
 
 }
